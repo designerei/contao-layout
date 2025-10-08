@@ -1,0 +1,35 @@
+{% extends '@Contao/content_element/_base.html.twig' %}
+
+{% if data.nestedInLayout|default %}
+    {% if data.parentLayoutType == 'flex' %}
+        {% set attributes = attrs()
+            .addClass(data.flexBasis|default|deserialize|join(' '))
+            .addClass(data.flex|default|deserialize|join(' '))
+            .addClass(data.flexGrow|default|deserialize|join(' '))
+            .addClass(data.flexShrink|default|deserialize|join(' '))
+            .addClass(data.order|default|deserialize|join(' '))
+            .addClass(data.alignmentSelf|default|deserialize|join(' '))
+            .mergeWith(attributes|default)
+        %}
+    {% elseif data.parentLayoutType == 'grid' %}
+        {% set attributes = attrs()
+            .addClass(data.gridColumn|default|deserialize|join(' '))
+            .addClass(data.gridRow|default|deserialize|join(' '))
+            .addClass(data.order|default|deserialize|join(' '))
+            .addClass(data.alignmentSelf|default|deserialize|join(' '))
+            .mergeWith(attributes|default)
+        %}
+    {% elseif data.parentLayoutType == 'columns' %}
+        {% set attributes = attrs()
+            .addClass(data.break|default|deserialize|join(' '))
+            .mergeWith(attributes|default)
+        %}
+    {% endif %}
+{% endif %}
+
+{% if data.spacing|default %}
+    {% set attributes = attrs()
+        .addClass(data.spacing|default|deserialize|join(' '))
+        .mergeWith(attributes|default)
+    %}
+{% endif %}
