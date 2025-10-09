@@ -2,7 +2,7 @@
 
 {% if data.layoutType == 'flex' %}
     {% set attributes = attrs()
-        .addClass('flex')
+        .addClass('flex'|format_tailwind_classes)
         .addClass(data.gap|format_tailwind_classes)
         .addClass(data.alignment|format_tailwind_classes)
         .addClass(data.flexDirection|format_tailwind_classes)
@@ -11,7 +11,7 @@
     %}
 {% elseif data.layoutType == 'grid' %}
     {% set attributes = attrs()
-        .addClass('grid')
+        .addClass('grid'|format_tailwind_classes)
         .addClass(data.gridTemplateColumns|format_tailwind_classes)
         .addClass(data.gridTemplateRows|format_tailwind_classes)
         .addClass(data.gap|format_tailwind_classes)
