@@ -89,6 +89,3 @@ $utilityClassFields = [
 foreach ($utilityClassFields as $field) {
     $GLOBALS['TL_DCA'][$table]['fields'][$field] = $commonUtilityClassField;
 }
-
-// Individual customizations
-$GLOBALS['TL_DCA'][$table]['fields']['spacing']['eval']['tl_class'] .= ' clr';
