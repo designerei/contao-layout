@@ -3,13 +3,10 @@
   "type": "contao-bundle",
   "require": {
     "contao/core-bundle": "^5.3",
-    "designerei/contao-tailwind-bridge": "^1.0"
+    "designerei/contao-tailwind-bridge": "dev-main"
   },
   "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/designerei/contao-tailwind-bridge.git"
-    }
+    { "type": "path", "url": "../contao-tailwind-bridge" }
   ],
   "license": "LGPL-3.0-or-later",
   "autoload": {
