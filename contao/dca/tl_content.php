@@ -13,7 +13,7 @@ $GLOBALS['TL_DCA'][$table]['subpalettes']['layoutType_flex'] = 'gap,alignment,fl
 $GLOBALS['TL_DCA'][$table]['subpalettes']['layoutType_columns'] = 'columns,gap';
 
 $GLOBALS['TL_DCA'][$table]['palettes']['layout'] = '
-    {type_legend},type;
+    {type_legend},title,type;
     {layout_legend},layoutType;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
