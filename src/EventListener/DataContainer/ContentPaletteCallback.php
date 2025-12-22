@@ -12,13 +12,19 @@ class ContentPaletteCallback
     public function __invoke(string $palette, DataContainer $dc): string
     {
         $currentRecord = $dc->getCurrentRecord();
-        $parentRecord = $dc->getCurrentRecord($currentRecord['pid']);
 
         if (null === $currentRecord) {
             return $palette;
         }
 
-        if ($parentRecord || $parentRecord['type'] == 'layout') {
+        $pid = $currentRecord['pid'] ?? null;
+        if (!$pid) {
+            return $palette;
+        }
+
+        $parentRecord = $dc->getCurrentRecord($pid);
+
+        if ($parentRecord && (($parentRecord['type'] ?? null) === 'layout')) {
             $layoutType = $parentRecord['layoutType'];
 
             if ($layoutType == 'grid') {
